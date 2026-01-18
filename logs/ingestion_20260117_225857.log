@@ -1,0 +1,11 @@
+2026-01-17 22:58:57,007 - DataIngestionOrchestrator - INFO - Logging initialized. Log file: /Users/ayman/Documents/CryptX/logs/ingestion_20260117_225857.log
+2026-01-17 22:58:57,007 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 22:58:57,007 - DataIngestionOrchestrator - INFO - RUNNING DATA VERIFICATION
+2026-01-17 22:58:57,007 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 22:59:01,134 - DataIngestionOrchestrator - INFO - Loading data from: /Users/ayman/Documents/CryptX/data/processed/BTCUSDT/1m/historical
+2026-01-17 22:59:05,317 - DataIngestionOrchestrator - INFO - 
+Data Statistics:
+2026-01-17 22:59:06,119 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 22:59:06,119 - DataIngestionOrchestrator - INFO - DATA VERIFICATION COMPLETED
+2026-01-17 22:59:06,119 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 22:59:06,122 - py4j.clientserver - INFO - Closing down clientserver connection

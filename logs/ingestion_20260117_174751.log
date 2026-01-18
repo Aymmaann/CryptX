@@ -1,0 +1,12 @@
+2026-01-17 17:47:51,969 - DataIngestionOrchestrator - INFO - Logging initialized. Log file: /Users/ayman/Documents/CryptX/logs/ingestion_20260117_174751.log
+2026-01-17 17:47:51,970 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 17:47:51,970 - DataIngestionOrchestrator - INFO - STARTING STREAMING DATA INGESTION PIPELINE
+2026-01-17 17:47:51,970 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 17:47:52,258 - DataIngestionOrchestrator - INFO - Initializing Streaming Data Ingestor...
+2026-01-17 17:47:55,943 - DataIngestionOrchestrator - INFO - Starting continuous ingestion for 120 seconds
+2026-01-17 17:47:55,943 - DataIngestionOrchestrator - INFO - Symbol: BTCUSDT, Interval: 1m
+2026-01-17 17:47:56,480 - websocket - INFO - Websocket connected
+2026-01-17 17:50:02,939 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 17:50:02,946 - DataIngestionOrchestrator - INFO - STREAMING DATA INGESTION COMPLETED
+2026-01-17 17:50:02,946 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 17:50:03,807 - py4j.clientserver - INFO - Closing down clientserver connection

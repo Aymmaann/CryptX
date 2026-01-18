@@ -1,0 +1,102 @@
+2026-01-17 16:38:24,624 - DataIngestionOrchestrator - INFO - Logging initialized. Log file: /Users/ayman/Documents/CryptX/logs/ingestion_20260117_163824.log
+2026-01-17 16:38:24,624 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 16:38:24,624 - DataIngestionOrchestrator - INFO - STARTING HISTORICAL DATA INGESTION PIPELINE
+2026-01-17 16:38:24,624 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 16:38:25,796 - DataIngestionOrchestrator - INFO - Initializing Historical Data Ingestor...
+2026-01-17 16:38:31,277 - py4j.clientserver - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/clientserver.py", line 535, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=4>
+2026-01-17 16:38:31,278 - py4j.clientserver - INFO - Closing down clientserver connection
+2026-01-17 16:38:31,279 - root - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/clientserver.py", line 535, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: reentrant call inside <_io.BufferedReader name=4>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/clientserver.py", line 566, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2026-01-17 16:38:31,280 - py4j.clientserver - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/clientserver.py", line 535, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/core/context.py", line 408, in signal_handler
+    self.cancelAllJobs()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/core/context.py", line 2506, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/java_gateway.py", line 1362, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/protocol.py", line 335, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o27.sc
+2026-01-17 16:38:31,281 - py4j.clientserver - INFO - Closing down clientserver connection
+2026-01-17 16:38:31,281 - root - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/clientserver.py", line 535, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/core/context.py", line 408, in signal_handler
+    self.cancelAllJobs()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/core/context.py", line 2506, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/java_gateway.py", line 1362, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/protocol.py", line 335, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o27.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/clientserver.py", line 566, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2026-01-17 16:38:31,281 - py4j.clientserver - INFO - Closing down clientserver connection
+2026-01-17 16:38:31,281 - DataIngestionOrchestrator - ERROR - Error in historical ingestion: An error occurred while calling None.org.apache.spark.sql.classic.SparkSession
+Traceback (most recent call last):
+  File "/Users/ayman/Documents/CryptX/spark/main_orchestrator.py", line 84, in run_historical_ingestion
+    self.historical_ingestor = HistoricalDataIngestor(
+                               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayman/Documents/CryptX/spark/historical_data_ingestor.py", line 34, in __init__
+    self.spark = spark_session or self._create_spark_session()
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayman/Documents/CryptX/spark/historical_data_ingestor.py", line 62, in _create_spark_session
+    .getOrCreate())
+     ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/session.py", line 560, in getOrCreate
+    session = SparkSession(sc, options=self._options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/session.py", line 642, in __init__
+    jsparkSession = jSparkSessionClass(self._jsc.sc(), options)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/java_gateway.py", line 1627, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/protocol.py", line 335, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling None.org.apache.spark.sql.classic.SparkSession
+2026-01-17 16:38:31,283 - py4j.clientserver - INFO - Closing down clientserver connection

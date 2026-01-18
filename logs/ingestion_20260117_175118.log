@@ -1,0 +1,25 @@
+2026-01-17 17:51:18,430 - DataIngestionOrchestrator - INFO - Logging initialized. Log file: /Users/ayman/Documents/CryptX/logs/ingestion_20260117_175118.log
+2026-01-17 17:51:18,430 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 17:51:18,430 - DataIngestionOrchestrator - INFO - RUNNING DATA VERIFICATION
+2026-01-17 17:51:18,430 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 17:51:22,387 - DataIngestionOrchestrator - INFO - Loading data from: /Users/ayman/Documents/CryptX/data/processed/BTCUSDT/1m/historical
+2026-01-17 17:51:24,691 - DataIngestionOrchestrator - ERROR - Error in data verification: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column, variable, or function parameter with name `year` cannot be resolved. Did you mean one of the following? [`day`, `hour`, `minute`, `timestamp`, `log_return`]. SQLSTATE: 42703;
+'Aggregate ['year, 'month], ['year, 'month, count(1) AS count#36L]
++- Relation [timestamp#0,price_open#1,price_high#2,price_low#3,price_close#4,volume_base#5,volume_quote#6,num_trades#7L,taker_buy_base_vol#8,taker_buy_quote_vol#9,log_return#10,simple_return#11,day#12,hour#13,minute#14,day_of_week#15] parquet
+Traceback (most recent call last):
+  File "/Users/ayman/Documents/CryptX/spark/main_orchestrator.py", line 280, in run_data_verification
+    df.groupBy("year", "month").count().orderBy("year", "month").show(50)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/group.py", line 37, in _api
+    jdf = getattr(self._jgd, name)()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/py4j/java_gateway.py", line 1362, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 269, in deco
+    raise converted from None
+pyspark.errors.exceptions.captured.AnalysisException: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column, variable, or function parameter with name `year` cannot be resolved. Did you mean one of the following? [`day`, `hour`, `minute`, `timestamp`, `log_return`]. SQLSTATE: 42703;
+'Aggregate ['year, 'month], ['year, 'month, count(1) AS count#36L]
++- Relation [timestamp#0,price_open#1,price_high#2,price_low#3,price_close#4,volume_base#5,volume_quote#6,num_trades#7L,taker_buy_base_vol#8,taker_buy_quote_vol#9,log_return#10,simple_return#11,day#12,hour#13,minute#14,day_of_week#15] parquet
+
+2026-01-17 17:51:24,695 - py4j.clientserver - INFO - Closing down clientserver connection

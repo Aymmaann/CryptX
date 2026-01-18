@@ -1,0 +1,11 @@
+2026-01-17 23:22:21,701 - DataIngestionOrchestrator - INFO - Logging initialized. Log file: /Users/ayman/Documents/CryptX/logs/ingestion_20260117_232221.log
+2026-01-17 23:22:21,701 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 23:22:21,701 - DataIngestionOrchestrator - INFO - STARTING BACKFILL DATA INGESTION
+2026-01-17 23:22:21,701 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 23:22:21,773 - DataIngestionOrchestrator - INFO - Initializing Streaming Data Ingestor for backfill...
+2026-01-17 23:22:25,878 - DataIngestionOrchestrator - INFO - Backfilling BTCUSDT from 2026-01-01 to 2026-01-01
+2026-01-17 23:22:29,805 - DataIngestionOrchestrator - INFO - Appending backfilled data to historical...
+2026-01-17 23:22:31,336 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 23:22:31,336 - DataIngestionOrchestrator - INFO - BACKFILL COMPLETED SUCCESSFULLY
+2026-01-17 23:22:31,336 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-17 23:22:32,317 - py4j.clientserver - INFO - Closing down clientserver connection

@@ -1,0 +1,48 @@
+2026-01-14 18:37:15,169 - DataIngestionOrchestrator - INFO - Logging initialized. Log file: /Users/ayman/Documents/CryptX/logs/ingestion_20260114_183715.log
+2026-01-14 18:37:15,169 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-14 18:37:15,169 - DataIngestionOrchestrator - INFO - STARTING HISTORICAL DATA INGESTION PIPELINE
+2026-01-14 18:37:15,169 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-14 18:37:15,360 - DataIngestionOrchestrator - INFO - Initializing Historical Data Ingestor...
+2026-01-14 18:37:19,174 - DataIngestionOrchestrator - INFO - Step 1: Ingesting data for BTCUSDT (1m)
+2026-01-14 18:37:23,664 - DataIngestionOrchestrator - INFO - Step 2: Validating data quality...
+2026-01-14 18:37:30,943 - DataIngestionOrchestrator - WARNING - Data has 264959 temporal gaps (threshold: 10)
+2026-01-14 18:37:30,943 - DataIngestionOrchestrator - INFO - Step 3: Sample of processed data:
+2026-01-14 18:37:32,292 - DataIngestionOrchestrator - INFO - Step 4: Saving processed data...
+2026-01-14 18:38:52,160 - DataIngestionOrchestrator - ERROR - Error in historical ingestion: year 57467 is out of range
+Traceback (most recent call last):
+  File "/Users/ayman/Documents/CryptX/spark/main_orchestrator.py", line 118, in run_historical_ingestion
+    self.historical_ingestor.save_processed_data(
+  File "/Users/ayman/Documents/CryptX/spark/historical_data_ingestor.py", line 225, in save_processed_data
+    self._save_metadata(df, symbol, interval, output_path)
+  File "/Users/ayman/Documents/CryptX/spark/historical_data_ingestor.py", line 233, in _save_metadata
+    "start_timestamp": df.agg(F.min("timestamp")).collect()[0][0],
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/classic/dataframe.py", line 444, in collect
+    return list(_load_from_socket(sock_info, BatchedSerializer(CPickleSerializer())))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/serializers.py", line 151, in load_stream
+    yield self._read_with_length(stream)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/serializers.py", line 173, in _read_with_length
+    return self.loads(obj)
+           ^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/serializers.py", line 473, in loads
+    return cloudpickle.loads(obj, encoding=encoding)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/types.py", line 3475, in <lambda>
+    return lambda *a: dataType.fromInternal(a)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/types.py", line 1821, in fromInternal
+    values = [
+             ^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/types.py", line 1822, in <listcomp>
+    f.fromInternal(v) if c else v
+    ^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/types.py", line 1384, in fromInternal
+    return self.dataType.fromInternal(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyspark/sql/types.py", line 461, in fromInternal
+    return datetime.datetime.fromtimestamp(ts // 1000000).replace(microsecond=ts % 1000000)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: year 57467 is out of range
+2026-01-14 18:38:52,628 - py4j.clientserver - INFO - Closing down clientserver connection
