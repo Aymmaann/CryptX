@@ -272,7 +272,7 @@ class HistoricalDataIngestor:
         
         print(f"[INFO] Data saved successfully in {format} format (mode: {mode})")
     
-    
+
     def _save_metadata(self, df, symbol, interval, output_path):
         """Save ingestion metadata for tracking."""
         metadata = {

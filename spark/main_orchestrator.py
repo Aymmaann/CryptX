@@ -459,6 +459,17 @@ def main():
             start_date=args.start_date,
             end_date=args.end_date
         )
+    elif args.mode == 'features':
+        print("\n=== Running Feature Engineering Mode ===")
+        from module_2_features.feature_engineer import FeatureEngineer
+        
+        engineer = FeatureEngineer(base_path=base_path, spark=spark)
+        df = engineer.run_full_pipeline(
+            symbol=config.SYMBOL,
+            interval=config.INTERVAL,
+            save=True
+        )
+        print(f"\n[SUCCESS] Feature matrix created with {len(df.columns)} columns")
     
     sys.exit(0 if success else 1)
 
