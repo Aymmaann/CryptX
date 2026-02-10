@@ -1,8 +1,3 @@
-"""
-Main orchestrator for the Data Ingestion Layer
-Coordinates historical batch processing and real-time streaming ingestion.
-"""
-
 import argparse
 import sys
 import logging
@@ -18,12 +13,6 @@ class DataIngestionOrchestrator:
     """
     
     def __init__(self, config):
-        """
-        Initialize the orchestrator.
-        
-        Args:
-            config: Configuration object
-        """
         self.config = config
         self.setup_logging()
         

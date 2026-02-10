@@ -1,0 +1,13 @@
+2026-01-26 09:01:29,878 - DataIngestionOrchestrator - INFO - Logging initialized. Log file: /Users/ayman/Documents/CryptX/logs/ingestion_20260126_090129.log
+2026-01-26 09:01:29,878 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:01:29,878 - DataIngestionOrchestrator - INFO - STARTING HISTORICAL DATA INGESTION PIPELINE
+2026-01-26 09:01:29,878 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:01:29,881 - DataIngestionOrchestrator - INFO - Initializing Historical Data Ingestor...
+2026-01-26 09:01:35,250 - DataIngestionOrchestrator - INFO - Step 1: Ingesting data for BTCUSDT (1m)
+2026-01-26 09:01:41,546 - DataIngestionOrchestrator - INFO - Step 2: Validating data quality...
+2026-01-26 09:01:47,296 - DataIngestionOrchestrator - INFO - Step 3: Sample of processed data:
+2026-01-26 09:01:48,504 - DataIngestionOrchestrator - INFO - Step 4: Saving processed data...
+2026-01-26 09:01:52,139 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:01:52,141 - DataIngestionOrchestrator - INFO - HISTORICAL DATA INGESTION COMPLETED SUCCESSFULLY
+2026-01-26 09:01:52,141 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:01:52,769 - py4j.clientserver - INFO - Closing down clientserver connection

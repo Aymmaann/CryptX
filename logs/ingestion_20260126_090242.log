@@ -1,0 +1,35 @@
+2026-01-26 09:02:42,060 - DataIngestionOrchestrator - INFO - Logging initialized. Log file: /Users/ayman/Documents/CryptX/logs/ingestion_20260126_090242.log
+2026-01-26 09:02:42,060 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:02:42,060 - DataIngestionOrchestrator - INFO - STARTING HYBRID INGESTION PIPELINE
+2026-01-26 09:02:42,060 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:02:42,060 - DataIngestionOrchestrator - INFO - 
+*** PHASE 1: HISTORICAL DATA INGESTION ***
+
+2026-01-26 09:02:42,060 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:02:42,060 - DataIngestionOrchestrator - INFO - STARTING HISTORICAL DATA INGESTION PIPELINE
+2026-01-26 09:02:42,060 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:02:42,061 - DataIngestionOrchestrator - INFO - Initializing Historical Data Ingestor...
+2026-01-26 09:02:45,042 - DataIngestionOrchestrator - INFO - Step 1: Ingesting data for BTCUSDT (1m)
+2026-01-26 09:02:49,779 - DataIngestionOrchestrator - INFO - Step 2: Validating data quality...
+2026-01-26 09:02:54,704 - DataIngestionOrchestrator - INFO - Step 3: Sample of processed data:
+2026-01-26 09:02:56,293 - DataIngestionOrchestrator - INFO - Step 4: Saving processed data...
+2026-01-26 09:03:02,929 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:03:02,932 - DataIngestionOrchestrator - INFO - HISTORICAL DATA INGESTION COMPLETED SUCCESSFULLY
+2026-01-26 09:03:02,932 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:03:03,625 - DataIngestionOrchestrator - INFO - 
+*** PHASE 2: STREAMING DATA INGESTION ***
+
+2026-01-26 09:03:03,625 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:03:03,626 - DataIngestionOrchestrator - INFO - STARTING STREAMING DATA INGESTION PIPELINE
+2026-01-26 09:03:03,626 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:03:03,831 - DataIngestionOrchestrator - INFO - Initializing Streaming Data Ingestor...
+2026-01-26 09:03:04,013 - DataIngestionOrchestrator - INFO - Starting continuous ingestion for 3600 seconds
+2026-01-26 09:03:04,013 - DataIngestionOrchestrator - INFO - Symbol: BTCUSDT, Interval: 1m
+2026-01-26 09:03:04,638 - websocket - INFO - Websocket connected
+2026-01-26 09:13:24,604 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:13:24,609 - DataIngestionOrchestrator - INFO - STREAMING DATA INGESTION COMPLETED
+2026-01-26 09:13:24,609 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:13:25,199 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:13:25,199 - DataIngestionOrchestrator - INFO - HYBRID INGESTION PIPELINE COMPLETED
+2026-01-26 09:13:25,199 - DataIngestionOrchestrator - INFO - ======================================================================
+2026-01-26 09:13:25,217 - py4j.clientserver - INFO - Closing down clientserver connection
