@@ -8,6 +8,8 @@ from hmm_regime import HMMRegimeDetector
 from kmeans_regime import KMeansRegimeDetector
 from gmm_regime import GMMRegimeDetector
 from threshold_regime import ThresholdRegimeDetector
+from patchtst_regime import PatchTSTRegimeDetector
+from informer_regime import InformerRegimeDetector
 from regime_evaluator import RegimeEvaluator
 from regime_visualizer import RegimeVisualizer
 
@@ -15,11 +17,14 @@ from regime_visualizer import RegimeVisualizer
 class RegimeDetector:
     """
     Coordinate regime detection using multiple approaches.
-    Tests HMM, K-Means, GMM, and threshold-based methods.
+    Tests traditional ML (HMM, K-Means, GMM, Threshold) and modern
+    deep learning methods (PatchTST, Chronos, Informer).
     """
+    
     def __init__(self, base_path=".", spark=None):
         self.base_path = Path(base_path)
         
+        # Create or reuse Spark session
         if spark is None:
             self.spark = SparkSession.builder \
                 .appName("CryptX-RegimeDetection") \
@@ -34,10 +39,13 @@ class RegimeDetector:
         
         # Initialize all detectors
         self.detectors = {
-            'hmm': HMMRegimeDetector(n_regimes=3),
-            'kmeans': KMeansRegimeDetector(n_regimes=3),
-            'gmm': GMMRegimeDetector(n_regimes=3),
-            'threshold': ThresholdRegimeDetector()
+            'hmm':       HMMRegimeDetector(n_regimes=3),
+            'kmeans':    KMeansRegimeDetector(n_regimes=3),
+            'gmm':       GMMRegimeDetector(n_regimes=3),
+            'threshold': ThresholdRegimeDetector(),
+            'patchtst':  PatchTSTRegimeDetector(n_regimes=3),
+            'informer':  InformerRegimeDetector(n_regimes=3),
+            # 'chronos':   ChronosRegimeDetector(n_regimes=3),  # Skipped - too slow on CPU
         }
         
         # Initialize evaluator and visualizer
@@ -142,6 +150,8 @@ class RegimeDetector:
         
         print("\n" + "="*60)
         print(f"✓ Completed {len([r for r in results.values() if r is not None])}/{len(self.detectors)} methods")
+        print("  Traditional ML: HMM, K-Means, GMM, Threshold")
+        print("  Deep Learning:  PatchTST (2023), Informer (2021)")
         print("="*60 + "\n")
         
         return results
