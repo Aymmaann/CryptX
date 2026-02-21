@@ -1,0 +1,2 @@
+method,silhouette_score,calinski_harabasz_score,davies_bouldin_score,avg_regime_duration,regime_balance,volatility_separation,transition_frequency,within_regime_volatility
+informer,0.17418106613877013,612.0970600044864,2.329975107947109,113.6923076923077,0.8184782293312809,800.1399413837914,0.008570139828597204,0.004246241889273531
