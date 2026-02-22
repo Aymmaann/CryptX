@@ -70,8 +70,18 @@ class HistoricalDataIngestor:
         """Clean and transform data."""
         
         # Convert millisecond timestamps to datetime
-        df = df.withColumn("timestamp", 
-                          F.from_unixtime(F.col("open_time") / 1000).cast("timestamp"))
+        df = df.withColumn(
+            "timestamp",
+            F.when(
+                F.col("open_time") > 1_000_000_000_000_000,  # microseconds
+                F.from_unixtime(F.col("open_time") / 1_000_000)
+            ).when(
+                F.col("open_time") > 1_000_000_000_000,      # milliseconds
+                F.from_unixtime(F.col("open_time") / 1_000)
+            ).otherwise(
+                F.from_unixtime(F.col("open_time"))           # seconds
+            ).cast("timestamp")
+        )
         
         # Remove duplicates
         df = df.dropDuplicates(["open_time"])
@@ -145,7 +155,7 @@ class HistoricalDataIngestor:
 
 # Usage example
 if __name__ == "__main__":
-    ingestor = HistoricalDataIngestor(base_path="./CryptX")
+    ingestor = HistoricalDataIngestor(base_path=".")
     
     # Load and process data
     df = ingestor.ingest_data(symbol="BTCUSDT", interval="1m")
